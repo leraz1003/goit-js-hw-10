@@ -22,17 +22,17 @@ form.addEventListener('submit', (evt) => {
 
       setTimeout(() => {
         if (fulfield.checked) {
-          res(() => { });
+          res(delay);
         } else
           if (rejected.checked) {
-            rej(() => {});
+            rej(delay);
           }
       }, delay);
 
     });
 
   promise
-    .then(() => {
+    .then((delay) => {
       iziToast.show({
         message: `✅ Fulfilled promise in ${delay}ms`,
         backgroundColor: "#59a10d",
@@ -46,7 +46,7 @@ form.addEventListener('submit', (evt) => {
           timeout:5500
       });
     })
-    .catch(() => {
+    .catch((delay) => {
       iziToast.show({
         message: `❌ Rejected promise in ${delay}ms`,
         backgroundColor: "#ef4040",
